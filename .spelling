@@ -10,6 +10,7 @@ i.e.
 e.g.
 lossy
 learnability
+performant
 unflatten
 checkbox
 checkboxes
@@ -19,6 +20,7 @@ checkmarks
 # General Technical Terminology
 api
 apis
+base64
 enum
 enums
 CSV
@@ -29,6 +31,8 @@ timestamps
 namespace
 namespaces
 dequeue
+deserialization
+deserializing
 subdiagram
 subdiagrams
 subfolder

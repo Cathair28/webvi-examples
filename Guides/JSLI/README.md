@@ -1,6 +1,11 @@
 # JSLI Frequently Asked Questions
 
 - [What is the JSLI?](#what-is-the-jsli)
+- [Which functions can the JSLI call?](#which-functions-can-the-jsli-call)
+- [How can I expose multiple JavaScript functions and minimize global object pollution?](#how-can-I-expose-multiple-javascript-functions-and-minimize-global-object-pollution)
+- [What LabVIEW types are supported by the JSLI?](#what-labview-types-are-supported-by-the-jsli)
+- [How are the LabVIEW types represented in JavaScript?](#how-are-the-labview-types-represented-in-javascript)
+- [How can I return multiple values from JavaScript?](#how-can-i-return-multiple-values-from-javascript)
 
 ## What is the JSLI?
 
@@ -14,7 +19,7 @@ What this means in practice is that **built-in browser JavaScript functions** su
 
 ![configure the global console.log function in a JSLI document](readme_files/configureconsolelog.gif)
 
-When writing custom JavaScript files to use with the JSLI, it is recommended that you explicity assign **your JavaScript functions** to the global object named `window`.
+When writing custom JavaScript files to use with the JSLI, it is recommended that you explicitly assign **your JavaScript functions** to the global object named `window`.
 
 For example, the contents of `notRecommendedImplicitGlobals.js` may contain:
 
@@ -28,8 +33,9 @@ window.incrementCounter = function () {
     return counter++;
 };
 ```
+
 In the above example, `incrementCounter` is explicitly assigned to the global object but `counter` is implicitly assigned to the global object.
-The implicit assignment of counter to a global may result in accidentally overwriting an exisiting variable named counter used in other scripts.
+The implicit assignment of counter to a global may result in accidentally overwriting an existing variable named counter used in other scripts.
 
 A more robust JavaScript file may use the wrapper code template described in the [Preparing Your Code For Use With a JavaScript Library Interface](http://www.ni.com/documentation/en/labview-web-module/latest/manual/prepare-your-js-code/) help topic.
 
@@ -127,7 +133,7 @@ This will convert valid LabVIEW NXG UTF-8 strings to valid JavaScript UTF-16 str
 > **Note**: Do not attempt to send arbitrary binary back and forth as strings.
 > Instead use byte arrays or base64 encode / decode a string.
 >
-> Invalid LabVIEW NXG UTF-8 strings or invalid UTF-16 JavaScript strings may result in unexpected ouput or errors.
+> Invalid LabVIEW NXG UTF-8 strings or invalid UTF-16 JavaScript strings may result in unexpected output or errors.
 
 ### LabVIEW Number Arrays
 
@@ -173,7 +179,7 @@ Both JavaScript and WebVIs support the JSON format for string serialization and 
 
 On a WebVI diagram, [Flatten to JSON](http://www.ni.com/documentation/en/labview/latest/node-ref/flatten-to-json/) or [Unflatten from JSON](http://www.ni.com/documentation/en/labview/latest/node-ref/unflatten-from-json/) can be used to convert a value to a JSON string or parse a JSON string respectively.
 
-From JavaScript, the [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) and [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) functions can be used to convert a value to a JSON string or parse a JSON string respectively.
+From JavaScript, the [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) and [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) functions can be used to convert a value to a JSON string or parse a JSON string respectively.
 
 <!--
 
