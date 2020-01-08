@@ -120,9 +120,9 @@ The LabVIEW boolean type will be automatically converted to the JavaScript boole
 
 ### LabVIEW Number
 
-The various LabVIEW number types will be automatically converted back and forth to the single JavaScript number type.
+The various LabVIEW number types will be automatically converted back and forth to the JavaScript number type.
 
-> **Note**: JavaScript has a single number type that corresponds to an IEEE 754 Double precision floating point value.
+> **Note**: JavaScript only has one number type that corresponds to an IEEE 754 Double precision floating point value.
 > The JSLI only supports LabVIEW number types that can be losslessly converted to a JavaScript number.
 
 ### LabVIEW String
